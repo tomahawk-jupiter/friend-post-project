@@ -1,0 +1,93 @@
+extends layout
+
+block content 
+  div.profile-header
+    div.profile-user
+
+      img(
+        class="profileImg",
+        src=(currentUser.avatar === null ? 'images/robot.svg' :  currentUser.avatar),
+        alt="Profile pic"
+      )
+
+      h1=currentUser.name
+
+    form(action="/logout" method="POST")
+      input#logout.btn.btn-primary.btn-sm(type="submit", value="Logout")
+
+  div.main-content
+    div.friend-panel
+
+      h2 Users 
+
+      each user in users
+        if currentUser.id != user.id
+          div.friend-card(class=user.id) 
+            img(
+              class=user.style,
+              src=(user.avatar === null ? "images/robot.svg" : user.avatar),
+              alt="friendlist profile pic"
+            )
+
+            div.friend-card-section 
+              p=user.name
+
+              div(class="friendStatus")
+                if user.acceptBtn
+                  button.btn.btn-success.btn-sm(id=user.id) Accept
+                else if user.pending
+                  p Requested
+                else if user.style === 'friendImg'
+                  p Friend
+                else
+                  button.btn.btn-primary.btn-sm(id=user.id) Add
+
+    div.post-area 
+      div.post-top
+        h2 Posts
+
+        div.error-container 
+
+        div.posts-container
+          if posts != null
+            each post in posts 
+              div.post-card
+                p.post-author #{post.authorName} says: 
+
+                p=post.text
+
+                div.comments-container(id=`comment${post._id}`) 
+                  - const comments = post.comments.reverse().slice(0, 5);
+                  each comment in post.comments 
+                      div.comment-card
+                        p.comment-author #{comment.author} comments: 
+                        p.comment-text=comment.text
+
+                div.card-button-row 
+                  div.like-group
+                    button.like-button.btn
+                      img(class="like-icon" src="images/like.svg", alt="Thumbs up icon")
+                    p.like-count=post.likeCount
+                  
+                  button.comment-btn.btn.btn-primary.btn-sm(id=post._id) Comment
+                  
+          else 
+            p No posts
+
+      div.post-bottom
+
+        form(id="post-form") 
+          div.form-group
+            div.post-label-row
+              h4 New Post
+              button.btn.btn-primary.btn-sm(type="submit") Send
+            textarea.form-control(id="post-text" name="text" form="post-form") 
+        
+        form(id="comment-form")
+          div.form-group 
+            div.post-label-row
+              h4 New Comment
+              button.btn.btn-primary.btn-sm(type="submit") Send
+            textarea.form-control(id="comment-text" name="comment-text" form="comment-form") 
+            input(id="postid-input" type="hidden" value="")
+        

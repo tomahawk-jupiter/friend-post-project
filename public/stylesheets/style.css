@@ -1,0 +1,335 @@
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+/**** General elements ****/
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  margin-top: 6px;
+}
+
+h2 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+button {
+  margin: 3px 0px;
+  line-height: normal !important;
+}
+
+form p {
+  font-style: italic;
+}
+
+/**** Login & signup forms ****/
+
+.login-page, .signup-page {
+  padding: 10px;
+}
+
+/**** Profile page ****/
+
+.profile-header {
+  border-bottom: solid black 1px;
+  display: flex;
+  align-items: center;
+  height: 20%;
+  justify-content: space-between;
+}
+
+.profile-user {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+.profileImg {
+  max-width: 100px;
+  max-height: auto;
+  margin: 10px;
+}
+/* orientation landscape or portrait */
+
+/* @media (max-height: 550px) {
+  .profileImg {
+    max-width: 50px;
+  }
+} */
+
+.profileImg, .friendImg, .notFriendImg {
+  border-radius: 50%;
+}
+
+.profile-user h1 {
+  flex: auto;
+  justify-self: safe;
+  text-align: left;
+}
+
+#logout {
+  margin-right: 5px;
+}
+
+
+/**** Main area ****/
+
+.friend-panel {
+  border-right: solid black 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+.friend-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.friendImg, .notFriendImg {
+  width: 80px;
+  height: auto;
+}
+.friendImg {
+  border: solid rgb(12, 94, 170) 4px;
+}
+.notFriendImg {
+  border: solid rgb(170, 31, 12) 4px;
+}
+
+
+/**** Post timeline ****/
+
+.error-container {
+  display: flex;
+}
+.close-button {
+  margin: 0 3px;
+}
+
+.post-area {
+  overflow: hidden;
+}
+
+.post-area h2 {
+  margin-left: 10px;
+}
+
+.post-top {
+  overflow-y: auto;
+  height: 70%;
+  padding: 0 20px;
+}
+
+.post-card {
+  border: solid black 1px;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 5px;
+  padding: 0 20px;
+}
+
+.post-author {
+  font-size: 1.2em;
+}
+
+.card-button-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like-group {
+  display: flex;
+  align-items: baseline;
+}
+
+.like-button img {
+  width: 18px;
+  height: auto;
+}
+
+
+/**** Comment card ****/
+
+.comment-card {
+  border: solid 1px;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: beige;
+}
+/* .comment-author {
+
+} */
+.comment-text {
+  font-size: 0.9em;
+}
+
+/**** Post form ****/
+
+.post-bottom {
+  height: 25%;
+}
+
+.post-bottom h4 {
+  margin: 0;
+  height: 23%;
+}
+
+#post-form, #comment-form {
+  margin: 0 auto;
+  border-top: solid 1px;
+  padding: 2%;
+  border-top: solid 1px;
+  height: 98%;
+}
+
+#comment-form {
+  display: none;
+}
+
+.post-bottom .form-group {
+  margin-right: 5px;
+}
+
+.post-label-row {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+textarea {
+  resize: none;
+}
+
+
+/**** Form pages ****/
+
+label {
+  margin-bottom: 5px;
+  font-size: 1.4em;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+.btn-light:hover {
+  border: solid 1px;
+}
+#github {
+  width: 150px;
+  height: auto;
+}
+.signup-page, .login-page {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.signup-page h1, .login-page h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/**** Media queries ****/
+
+.main-content {
+  display: grid;
+  grid-template-columns: 150px auto;
+  height: 80%;
+  overflow: hidden
+}
+
+@media (min-width: 1000px) {
+  html {
+    background-color: #0d76fd;
+  }
+
+  body {
+    border-left: solid #ffb300 5px;
+    border-right: solid #ffb300 5px;
+    margin: 0 200px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .post-card {
+    max-width: 800px;
+  }
+}
+
+
+/**** Alternate display ****/
+
+@media (max-width: 450px) {
+
+  button {
+    font-size: 0.8em;
+    height: fit-content;
+  }
+
+  .profile-header {
+    height: 15%;
+  }
+
+  .profile-header h1 {
+    font-size: 1em;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .friend-panel {
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+ 
+  .friend-panel h2 {
+    display: none;
+  }
+
+  .friend-panel  {
+    margin: 0;
+  }
+
+  .friend-card {
+    flex-direction: row;
+    margin: 0;
+    border-right: solid;
+    margin-bottom: 2px;
+    padding: 0px 20px 5px 5px;
+    border-bottom: solid 1px;
+    height: 80px;
+    white-space: nowrap;
+  }
+  .friend-card-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-area {
+    height: 80%;
+  }
+
+  .profileImg {
+    width: 60px;
+  }
+
+  .notFriendImg, .friendImg {
+    width: 50px;
+    margin: 0 10px;
+  }
+}

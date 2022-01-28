@@ -1,0 +1,27 @@
+extends layout
+
+block content 
+
+  div.signup-page
+    h1 Signup 
+
+    if errors
+      each error in errors 
+        p=error.msg 
+
+    form(action="", method="post") 
+      div.form-group
+        label(for="email") Email:
+        p This will be your login username
+        input#email.form-control(type="email", name="email" required="true")
+      div.form-group
+        label(for="password") Password:
+        input#password.form-control(type="password", name="password" required="true")
+      div.form-group
+        label(for="name") Name: 
+        p This is the name everyone will see
+        input#name.form-control(type="text", name="name" required="true")
+      div.form-group
+        label(for="imgurl") Profile pic url (optional):
+        input#imgurl.form-control(type="url", name="imgurl")
+      button.btn.btn-primary(type="submit") Confirm

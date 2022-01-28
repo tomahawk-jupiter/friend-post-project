@@ -1,0 +1,41 @@
+extends layout
+
+block content 
+
+  div.login-page
+
+    h1 Login 
+
+    if message
+      p=message
+
+    if errors 
+      each error in errors 
+        p=error.msg 
+
+    form(action="/", method="post") 
+      div.form-group
+        label(for="email") Email:
+        input#username.form-control(
+          type="email", 
+          name="email", 
+          required="true",
+          value=(email === undefined ? '' : email)
+        )
+      div.form-group
+        label(for="password") Password:
+        input#password.form-control(
+          type="password", 
+          name="password",
+          required="true",
+          value=(password === undefined ? '' : password)
+          )
+      button.btn.btn-primary(type="submit") Login
+      a.btn.btn-light(href="/signup") Sign up
+
+    hr
+
+    a.btn(href='/auth/github')
+      img(id="github" src="images/github_login.png", alt="github logo")
+
+

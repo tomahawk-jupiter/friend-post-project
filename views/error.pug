@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+  if error
+    h1 Error: #{error.status}
+
+    p=error.message
+  
+  if errors 
+
+    h1 Errors 
+    
+    each err in errors
+      p=err.msg
+
+  if message 
+
+    h1 Errors 
+    p=message

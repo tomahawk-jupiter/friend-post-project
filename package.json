@@ -1,11 +1,14 @@
 {
   "name": "friend-post-project",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.13.1"
+  },
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "test": "jest",
-    "devstart": "DEBUG=facebook_project:* npm start"
+    "devstart": "DEBUG=friend-post-project:* npm start"
   },
   "dependencies": {
     "async": "^3.2.3",

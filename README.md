@@ -1,7 +1,30 @@
-# Friend Post
+# Friend Post Poject
 
 A basic social media app.
 
+## Deploying with Heroku
+
+1. Create github repo
+
+2. Add node version in package.json
+
+    Get node version:
+
+            $ node -v
+
+    Put in package.json like so:
+
+            "engines": {
+              "node": "16.13.1"
+            },
+
+3. Create **Procfile** in root dir with no extension
+
+    Put this in the file (its the start script):
+
+        web: node ./bin/www
+
+    Its not stictly necesary because heroku can get it from package.json but its best practice.
 
 ## TODO
 

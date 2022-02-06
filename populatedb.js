@@ -2,11 +2,11 @@
 
 /// NOT PROPERLY IMPLEMENTED ///
 
-console.log('Populating database...');
-// $ node populatedb <mongo connection string>
+// console.log('Populating database...');
+// To run file: $ node populatedb <mongo connection string>
 
 // Get arguments passed on command line
-var userArgs = process.argv.slice(2);
+// var userArgs = process.argv.slice(2);
 
 // if (!userArgs[0].startsWith('mongodb')) {
 //     console.log('ERROR: You need to specify a valid mongodb URL as the first argument');
@@ -14,17 +14,17 @@ var userArgs = process.argv.slice(2);
 // }
 
 // var async = require('async')
-const { faker } = require('@faker-js/faker');
+// const { faker } = require('@faker-js/faker');
 
-var mongoose = require('mongoose');
-const user = require('./models/user');
-var mongoDB = userArgs[0];
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
-// mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// var mongoose = require('mongoose');
+// const user = require('./models/user');
+// var mongoDB = userArgs[0];
+// mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+// // mongoose.Promise = global.Promise;
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-const User = require('./models/user');
+// const User = require('./models/user');
 
 
 
